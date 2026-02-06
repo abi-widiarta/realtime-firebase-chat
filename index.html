@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realtime Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Login screen: shown first -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <h2>Sign in</h2>
+      <p class="login-hint">Choose an account and enter password</p>
+
+      <div class="account-options" id="accountOptions">
+        <button type="button" class="account-option" data-account="Alice" aria-pressed="false">Alice</button>
+        <button type="button" class="account-option" data-account="Bob" aria-pressed="false">Bob</button>
+      </div>
+
+      <div class="login-form">
+        <label for="passwordInput">Password</label>
+        <input type="password" id="passwordInput" placeholder="Enter password" autocomplete="current-password" aria-label="Password" />
+        <p class="login-error" id="loginError" role="alert" hidden></p>
+        <button type="button" id="loginButton">Login</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat: shown after login -->
+  <div class="chat-container hidden" id="chatContainer">
+    <!-- Header -->
+    <header class="chat-header">
+      <h1>Realtime Chat</h1>
+    </header>
+
+    <!-- Scrollable messages area -->
+    <main class="chat-messages" id="chatMessages" role="log" aria-live="polite">
+      <!-- Messages are inserted here by app.js -->
+    </main>
+
+    <!-- Message input area -->
+    <footer class="chat-input-area">
+      <input
+        type="text"
+        id="messageInput"
+        placeholder="Type a message..."
+        autocomplete="off"
+        aria-label="Message input"
+      />
+      <button type="button" id="sendButton" aria-label="Send message">Send</button>
+    </footer>
+  </div>
+
+  <!-- Firebase SDK (modular v9+) - loaded via CDN -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
